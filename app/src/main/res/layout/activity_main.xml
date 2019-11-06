@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ct.controladruino.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_tilte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bluetooth Device"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Connect"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:background="@drawable/bt_background"
+        app:layout_constraintBottom_toTopOf="@id/scrollview"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_tilte" />
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_connect">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_fan"
+                android:layout_width="64dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_fan"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/iv_auto_door"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_auto_door"
+                android:layout_width="64dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_door"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintLeft_toRightOf="@id/iv_fan"
+                app:layout_constraintRight_toRightOf="@id/iv_led"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_led"
+                android:layout_width="64dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="45dp"
+                android:src="@drawable/ic_led"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintLeft_toRightOf="@id/iv_auto_door"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="wrap_content"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollview" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_gara"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_top">
+        <TextView
+            android:id="@+id/tv_gara_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Door"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_gara"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_door1"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/tv_gara_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_gara_title" />
+
+        <TextView
+            android:id="@+id/tv_gara"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Garage Door"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_gara"
+            app:layout_constraintLeft_toRightOf="@id/iv_gara"
+            app:layout_constraintTop_toTopOf="@id/iv_gara" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swt_gara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            app:layout_constraintBottom_toBottomOf="@id/iv_gara"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_gara" />
+        <View
+            android:id="@+id/view_down_door"
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_gara" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_led"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_top">
+
+        <TextView
+            android:id="@+id/tv_led_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Led"
+            android:textColor="@android:color/black"
+            android:textSize="26sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_led_liv"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_led"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/tv_led_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_led_title" />
+
+        <TextView
+            android:id="@+id/tv_led_liv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Living lamp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_led_liv"
+            app:layout_constraintLeft_toRightOf="@id/iv_led_liv"
+            app:layout_constraintTop_toTopOf="@id/iv_led_liv" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swt_led_liv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            app:layout_constraintBottom_toBottomOf="@id/iv_led_liv"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_led_liv" />
+
+
+        <ImageView
+            android:id="@+id/iv_led_bed"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_led"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/iv_led_liv"
+            app:layout_constraintTop_toBottomOf="@id/iv_led_liv" />
+
+        <TextView
+            android:id="@+id/tv_led_bed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Bedroom lamp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_led_bed"
+            app:layout_constraintLeft_toRightOf="@id/iv_led_bed"
+            app:layout_constraintTop_toTopOf="@id/iv_led_bed" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swt_led_bed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            app:layout_constraintBottom_toBottomOf="@id/iv_led_bed"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_led_bed" />
+
+
+        <ImageView
+            android:id="@+id/iv_led_bath"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_led"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/iv_led_liv"
+            app:layout_constraintTop_toBottomOf="@id/tv_led_bed" />
+
+        <TextView
+            android:id="@+id/tv_led_bath"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Bathroom lamp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_led_bath"
+            app:layout_constraintLeft_toRightOf="@id/iv_led_bath"
+            app:layout_constraintTop_toTopOf="@id/iv_led_bath" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swt_led_bath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            app:layout_constraintBottom_toBottomOf="@id/iv_led_bath"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_led_bath" />
+
+
+        <ImageView
+            android:id="@+id/iv_led_out"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_led"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/iv_led_liv"
+            app:layout_constraintTop_toBottomOf="@id/tv_led_bath" />
+
+        <TextView
+            android:id="@+id/tv_led_out"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Led OutSide"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_led_out"
+            app:layout_constraintLeft_toRightOf="@id/iv_led_out"
+            app:layout_constraintTop_toTopOf="@id/iv_led_out" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swt_led_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            app:layout_constraintBottom_toBottomOf="@id/iv_led_out"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_led_out" />
+
+        <View
+            android:id="@+id/view_down"
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_led_out" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_fan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_top">
+        <TextView
+            android:id="@+id/tv_fan_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Fan"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_fan_image"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_fan"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/tv_fan_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_fan_title" />
+
+        <TextView
+            android:id="@+id/tv_fan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Fan"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_fan_image"
+            app:layout_constraintLeft_toRightOf="@id/iv_fan_image"
+            app:layout_constraintTop_toTopOf="@id/iv_fan_image" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swt_fan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            app:layout_constraintBottom_toBottomOf="@id/iv_fan_image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_fan_image" />
+        <View
+            android:id="@+id/view_down_fan"
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_fan_image" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    <Button-->
+    <!--        android:id="@+id/on"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="LED ON"-->
+    <!--        app:layout_constraintLeft_toLeftOf="@id/connect"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/connect" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/off"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="LED OFF"-->
+    <!--        app:layout_constraintLeft_toLeftOf="@id/connect"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/on" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
